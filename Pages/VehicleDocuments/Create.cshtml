@@ -1,0 +1,46 @@
+﻿@page
+@model Arghiroiu_Raluca_Proiect.Pages.VehicleDocuments.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Vehicle Document</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VehicleDocument.Type" class="control-label"></label>
+                <select asp-for="VehicleDocument.Type" class="form-control" asp-items="ViewBag.Type"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleDocument.ExpirationDate" class="control-label"></label>
+                <input asp-for="VehicleDocument.ExpirationDate" class="form-control" />
+                <span asp-validation-for="VehicleDocument.ExpirationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleDocument.Status" class="control-label"></label>
+                <select asp-for="VehicleDocument.Status" class="form-control" asp-items="ViewBag.Status"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleDocument.VehicleId" class="control-label">Vehicle</label>
+                <select asp-for="VehicleDocument.VehicleId" class ="form-control" asp-items="ViewBag.VehicleId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
